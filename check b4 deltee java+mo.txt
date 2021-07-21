@@ -1,0 +1,222 @@
+package ordercalc;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.Color;
+import java.text.DecimalFormat;
+
+public class OrderCalculate extends JFrame{
+   private final int WINDOW_WIDTH = 1500;
+   private final int WINDOW_HEIGHT = 1100; 
+   private double price = 0;
+   
+   private ButtonGroup MainDishG = new ButtonGroup();
+   private ButtonGroup SideDishG = new ButtonGroup();
+   private ButtonGroup DessertsG = new ButtonGroup();
+   
+   private JRadioButton BeefMeatLoaf;
+   private JRadioButton BBQChickenPieces;
+   private JRadioButton GrilledSalmon;
+   private JRadioButton PastaPrimaVera;
+   
+   private JCheckBox Salad;
+   private JCheckBox MixedVegetables;
+   private JCheckBox Potatoes;
+   private JCheckBox RiceDishes;
+   private JCheckBox Beans;
+   private JCheckBox Bread;
+   
+   private JRadioButton NoDessert;
+   private JRadioButton ChocolateCake;
+   private JRadioButton ApplePie;
+   private JRadioButton ButterscotchPudding;
+   
+   private JButton Calculate;
+   private JButton Exit;
+   
+    public OrderCalculate(){
+      super("Order Calculator");
+      createView();
+      
+      setLocationRelativeTo(null);
+      setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+      setResizable(false);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      pack();
+}
+    private void createView(){
+        
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createLineBorder(Color.black));
+        
+        panel.setLayout(new BorderLayout());
+        getContentPane().add(panel);
+        getContentPane().setBackground(Color.BLUE);
+        setVisible(true);
+        
+        //North
+        JPanel PNorth = new JPanel(new BorderLayout());
+        PNorth.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.add(PNorth, BorderLayout.NORTH);
+        PNorth.setBackground(Color.yellow);
+        PNorth.add(new JLabel("                            Welcome to Sunrise Specialty Catering!"), BorderLayout.NORTH);
+        
+        //West
+        JPanel GreetingsPanel = new JPanel (new GridLayout(5,1));
+        GreetingsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.add(GreetingsPanel, BorderLayout.WEST);
+        GreetingsPanel.setBackground(Color.green);
+        GreetingsPanel.add(new JLabel("       Main Dishes"));
+        BeefMeatLoaf = new JRadioButton("Beef Meat Loaf");
+        GreetingsPanel.add(BeefMeatLoaf);
+        BBQChickenPieces = new JRadioButton("BBQ Chicken Pieces");
+        GreetingsPanel.add(BBQChickenPieces);
+        GrilledSalmon = new JRadioButton("Grilled Salmon");
+        GreetingsPanel.add(GrilledSalmon);
+        PastaPrimaVera = new JRadioButton("Pasta Prima Vera");
+        GreetingsPanel.add(PastaPrimaVera);
+        MainDishG.add(BeefMeatLoaf);
+        MainDishG.add(BBQChickenPieces);
+        MainDishG.add(GrilledSalmon);
+        MainDishG.add(PastaPrimaVera);
+        
+        //Center
+        JPanel MainDishesPanel = new JPanel (new GridLayout(7,1));
+        MainDishesPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.add(MainDishesPanel, BorderLayout.CENTER);
+        MainDishesPanel.setBackground(Color.CYAN);
+        MainDishesPanel.add(new JLabel("       Side Dishes"));      
+        Salad = new JCheckBox("Salad");
+        MainDishesPanel.add(Salad);
+        MixedVegetables = new JCheckBox("Mixed Vegetables");
+        MainDishesPanel.add(MixedVegetables);
+        Potatoes = new JCheckBox("Potatoes");
+        MainDishesPanel.add(Potatoes);
+        RiceDishes = new JCheckBox("Rice Dishes");
+        MainDishesPanel.add(RiceDishes);
+        Beans = new JCheckBox("Beans");
+        MainDishesPanel.add(Beans);
+        Bread = new JCheckBox("Bread");
+        MainDishesPanel.add(Bread);
+        SideDishG.add(Salad);
+        SideDishG.add(MixedVegetables);
+        SideDishG.add(Potatoes);
+        SideDishG.add(RiceDishes);
+        SideDishG.add(Beans);
+        SideDishG.add(Bread);
+        
+        //East
+        JPanel DessertsPanel = new JPanel (new GridLayout(5,1));
+        DessertsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.add(DessertsPanel, BorderLayout.EAST);
+        DessertsPanel.setBackground(Color.magenta);
+        DessertsPanel.add(new JLabel("           Desserts"));
+        NoDessert = new JRadioButton("No Dessert");
+        DessertsPanel.add(NoDessert);
+        ChocolateCake = new JRadioButton("Chocolate Cake");
+        DessertsPanel.add(ChocolateCake);
+        ApplePie = new JRadioButton("Applie Pie");
+        DessertsPanel.add(ApplePie);
+        ButterscotchPudding = new JRadioButton("Butterscotch Pudding");
+        DessertsPanel.add(ButterscotchPudding);
+        DessertsG.add(NoDessert);
+        DessertsG.add(ChocolateCake);
+        DessertsG.add(ApplePie);
+        DessertsG.add(ButterscotchPudding);
+        
+        //South
+        JPanel PSouth = new JPanel (new FlowLayout());
+        PSouth.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.add(PSouth, BorderLayout.SOUTH);
+        PSouth.setBackground(Color.black);
+        Calculate = new JButton("Calculate");
+        PSouth.add(Calculate);
+        Calculate.addActionListener(new CalcButtonListener());
+        Exit = new JButton("Exit");
+        PSouth.add(Exit);
+        Exit.addActionListener(new ExitButtonListener());
+    }
+  private class CalcButtonListener implements ActionListener
+   {
+      double BML=70;
+      double BBQCP=60;
+      double GS=20;
+      double PPV=40;
+      double S=6.5;
+      double MV=9.5;
+      double P=5.5;
+      double RD=7.75;
+      double B=6.75;
+      double Br=4;
+      double NoD=0;
+      double CC=2.25;
+      double AP=1.5;
+      double BP=2.5;
+      double subtotal=0;
+      double salestax=.06;
+      double theirsalestax=0;
+      double total=0;
+      public void actionPerformed(ActionEvent e)
+      {
+          //Main Dishes
+         if(BeefMeatLoaf.isSelected()){
+             subtotal+=BML;
+         }
+         else if(BBQChickenPieces.isSelected()){
+             subtotal+=BBQCP;
+         }
+         else if(GrilledSalmon.isSelected()){
+             subtotal+=GS;
+         }
+
+         else if(PastaPrimaVera.isSelected()){
+             subtotal+=PPV;
+         }
+         //Side Dishes
+         if(Salad.isSelected()){
+             subtotal+=S;
+         }
+         else if(MixedVegetables.isSelected()){
+             subtotal+=MV;
+         }
+         else if(Potatoes.isSelected()){
+             subtotal+=P;
+         }
+         else if(RiceDishes.isSelected()){
+             subtotal+=RD;
+         }
+         else if(Beans.isSelected()){
+             subtotal+=B;
+         }
+         else if(Bread.isSelected()){
+             subtotal+=Br;
+         }
+         //Desserts
+         if(NoDessert.isSelected()){
+             subtotal+=NoD;
+         }
+         else if(ChocolateCake.isSelected()){
+             subtotal+=CC;
+         }
+         else if(ApplePie.isSelected()){
+             subtotal+=AP;
+         }
+         else if(ButterscotchPudding.isSelected()){
+             subtotal+=BP;
+         }
+         theirsalestax = (subtotal*salestax);
+         total = (subtotal + theirsalestax);
+         JOptionPane.showMessageDialog(null,"Your Subtotal is: $"+subtotal+"\n"+
+                 "Your Sales tax is: $"+theirsalestax+"\n"+
+                 "Your Total is: $"+total);
+        }    
+    }
+   private class ExitButtonListener implements ActionListener
+   {
+     public void actionPerformed(ActionEvent e)
+     {
+      System.exit(0);
+     }
+   }
+}

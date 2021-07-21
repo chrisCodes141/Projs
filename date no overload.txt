@@ -1,0 +1,90 @@
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class JavaApplication1
+{
+    private static String[] months =
+    {
+        "January", "February", "March", "April",
+        "May", "June", "July", "August", "September",
+        "October", "November", "December"
+    };
+    
+    private static int[] days = 
+    {
+        31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+    };
+    
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+        System.out.println("Enter 1 for format MM/DD/YYYY");
+        System.out.println("Enter 2 for format Month DD, YYYY");
+        System.out.println("Enter 3 for format DDD/YYYY");
+        System.out.println("Enter anything else to exit");
+    
+        int choice = in.nextInt();
+        in.nextLine();
+        
+        int month = 0; // 0-11
+        int day = 0; // 0-30
+        int year = 0; // 0-10000
+        switch (choice)
+        {
+            case 1:
+                month = in.nextInt() - 1;
+                day = in.nextInt();
+                year = in.nextInt();
+
+                break;
+            case 2:
+                
+                String mth = in.next();
+                for(int i = 0; i < 12; i++)
+                {
+                    if(months[i].equalsIgnoreCase(mth))
+                    {
+                        month = i;
+                        break;
+                    }
+                }
+                
+                day = in.nextInt();
+                year = in.nextInt();
+                break;
+            case 3:
+                month = 0;
+                day = in.nextInt();
+                year = in.nextInt();
+
+                for(int i = 0; i < 12; i++)
+                {
+                    if(day > days[i])
+                    {
+                        month++;
+                        day -= days[i];
+                    }
+                }
+                
+                break;
+            default:
+                System.exit(0);
+                break;
+        }
+        
+        // HERE IS WHERE WE WILL PRINT THE THREE
+        // DIFFERENT FORMATS USING THE THREE VARIABLES
+
+        System.out.println("\t" + (month + 1) + "/" + day + "/" + year);
+
+        System.out.println("\t" + months[month] + " " + day + ", " + year);
+        
+        for(int i = 0; i < month; i++)
+        {
+            day += days[i];
+        }
+        System.out.println("\t" + day + "/" + year);
+    }
+}

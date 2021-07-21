@@ -1,0 +1,92 @@
+﻿Build started 4/20/2017 11:34:31 AM.
+     1>Project "D:\C++2\Assignments\1st\1st.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>d:\c++2\assignments\1st\source.cpp(81): error C2059: syntax error : '('
+     1>d:\c++2\assignments\1st\source.cpp(82): error C2143: syntax error : missing ';' before '{'
+     1>d:\c++2\assignments\1st\source.cpp(83): error C2039: 'count' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(84): error C2039: 'fin' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(84): error C2039: 'bookmark' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(84): error C2039: 'count' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(85): error C2039: 'fin' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(85): error C2039: 'URL' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(85): error C2039: 'count' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(87): error C2039: 'cout' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(87): error C2039: 'count' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(87): error C2039: 'endl' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(89): error C2039: 'fin' : is not a member of 'std::basic_ifstream<_Elem,_Traits>'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+     1>d:\c++2\assignments\1st\source.cpp(161): error C2664: 'sort_bookmarks' : cannot convert parameter 1 from 'iterator_traits<_Iter>::difference_type (__cdecl *)(_InIt,_InIt,const _Ty &)' to 'int'
+                 Context does not allow for disambiguation of overloaded function
+     1>d:\c++2\assignments\1st\source.cpp(195): error C2664: 'sort_bookmarks' : cannot convert parameter 1 from 'iterator_traits<_Iter>::difference_type (__cdecl *)(_InIt,_InIt,const _Ty &)' to 'int'
+                 Context does not allow for disambiguation of overloaded function
+     1>d:\c++2\assignments\1st\source.cpp(197): error C2563: mismatch in formal parameter list
+     1>d:\c++2\assignments\1st\source.cpp(206): error C2563: mismatch in formal parameter list
+     1>d:\c++2\assignments\1st\source.cpp(206): error C2298: 'return' : illegal operation on pointer to member function expression
+     1>d:\c++2\assignments\1st\source.cpp(227): error C2601: 'delete_bookmark' : local function definitions are illegal
+                 d:\c++2\assignments\1st\source.cpp(210): this line contains a '{' which has not yet been matched
+     1>d:\c++2\assignments\1st\source.cpp(281): error C2059: syntax error : ')'
+     1>d:\c++2\assignments\1st\source.cpp(282): error C2143: syntax error : missing ')' before '{'
+     1>d:\c++2\assignments\1st\source.cpp(282): error C2601: 'quit' : local function definitions are illegal
+                 d:\c++2\assignments\1st\source.cpp(210): this line contains a '{' which has not yet been matched
+     1>d:\c++2\assignments\1st\source.cpp(288): fatal error C1075: end of file found before the left brace '{' at 'd:\c++2\assignments\1st\source.cpp(210)' was matched
+     1>Done Building Project "D:\C++2\Assignments\1st\1st.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:12.58

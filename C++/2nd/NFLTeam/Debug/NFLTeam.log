@@ -1,0 +1,20 @@
+﻿Build started 4/27/2017 7:22:47 PM.
+     1>Project "D:\C++2\Assignments\2nd\NFLTeam\NFLTeam.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>d:\c++2\assignments\2nd\nflteam\source.cpp(19): error C2371: 'Data::info' : redefinition; different basic types
+                 d:\c++2\assignments\2nd\nflteam\source.cpp(18) : see declaration of 'Data::info'
+     1>d:\c++2\assignments\2nd\nflteam\source.cpp(35): error C2664: 'std::basic_istream<_Elem,_Traits> &std::basic_istream<_Elem,_Traits>::getline(_Elem *,std::streamsize)' : cannot convert parameter 1 from 'Data [20]' to 'char *'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>d:\c++2\assignments\2nd\nflteam\source.cpp(35): fatal error C1903: unable to recover from previous error(s); stopping compilation
+     1>Done Building Project "D:\C++2\Assignments\2nd\NFLTeam\NFLTeam.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.18
